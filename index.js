@@ -8,6 +8,7 @@ for (let i = 0; i < rows.length; i++) {
 }
 
 // Part 2: Expanding Functionality
+console.log("Part 2: Expanding Functionality");
 console.log(rowsArray);
 
 // Part 3: Transforming Data
@@ -43,6 +44,7 @@ for (let m = 1; m < rowsArray.length; m++) {
     rowsObject[count] = transformData; 
     count++;
 }
+console.log("Part 3: Transforming Data");
 console.log(rowsObject);
 
 // Part 4: Sorting and Manipulating Data
@@ -50,6 +52,7 @@ console.log(rowsObject);
 const lastObject = rowsObject.pop();
 
 // check the last element was removed
+console.log("Part 4: Sorting and Manipulating Data");
 console.log(rowsObject);
 
 // insert an object at index 1
@@ -74,6 +77,7 @@ let averageAge = sum / (rowsObject.length);
 console.log("The average age: " + averageAge);
 
 // Part 5: Full Circle
+console.log("Part 5: Full Circle");
 console.log(rowsObject);
 
 // remove the addedObject object from the end of the array
@@ -88,3 +92,42 @@ console.log(rowsObject);
 rowsObject.push(lastObject);
 console.log(rowsObject);
 
+const backData = [];
+let row = [];
+
+// convert each value to uppercase letters 
+for (let k = 0; k < keys.length; k++) {
+    if(k === 0) {
+        row[k] = keys[k].toUpperCase();
+    } else {
+        row[k] =keys[k].at(0).toUpperCase() + keys[k].slice(1);    
+    }
+}
+
+backData.unshift(row);
+//console.log(backData);
+
+for (let v = 0; v < rowsObject.length; v++) {
+    let values = Object.values(rowsObject[v]);
+    backData.push(values);
+}
+
+console.log(backData);
+
+let backStr = "";
+let backString = "";
+let c = 0;
+
+while(c < backData.length) {  
+    if (c !== backData.length - 1) {
+        backString = backData[c].join() + "\\n";
+        backStr += backString;
+        c += 1;
+    } else {
+        backString = backData[c].join();
+        backStr += backString;
+        c += 1;
+    }
+    
+}
+console.log(backStr);
