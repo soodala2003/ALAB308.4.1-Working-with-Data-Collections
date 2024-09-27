@@ -21,5 +21,26 @@ for (let j = 0; j < heading.length; j++) {
 // to check the conversion of lowercase letters
 console.log(rowsArray);
 
+// extract keys
+let properties = [];
 
+for (let k = 0; k < rowsArray[0].length; k++) {
+    properties[k] = rowsArray[0][k];
+}
 
+const rowsObject = [];
+let count = 0;
+
+for (let m = 1; m < rowsArray.length; m++) {
+    let transformData = {};
+    for (let n = 0; n < rowsArray[0].length; n++) {
+        if (transformData == {}) {  
+            transformData = {[properties[n]]: rowsArray[m][n]};
+        } else {
+              transformData[properties[n]] = rowsArray[m][n];
+        }
+    }
+    rowsObject[count] = transformData; 
+    count++;
+}
+console.log(rowsObject);
